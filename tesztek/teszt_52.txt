@@ -1,0 +1,9 @@
+create tile
+create tile
+create bearDance
+set tile 1 adjacentTiles 2
+create virologist
+set tile 1 virologists virologist 1
+add virologist 1 effects effect 1
+virologist 1 move tile 2
+info virologist 1 all

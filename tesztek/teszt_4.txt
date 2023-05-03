@@ -1,0 +1,7 @@
+create tile
+create tile
+set tile 1 adjacentTiles 2
+create virologist
+set tile 1 virologists virologist 1
+virologist 1 move tile 2
+info virologist 1 all

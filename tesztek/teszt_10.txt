@@ -1,0 +1,9 @@
+create shelter
+create virologist
+create bag
+set virologist 1 bag bag 1
+set tile 1 virologists virologist 1
+create cape
+set tile 1 p_g 1
+virologist 1 collectProtectiveGear
+info bag 1 all

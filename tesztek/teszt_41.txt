@@ -1,0 +1,21 @@
+create tile
+create virologist
+create virologist
+create bag
+create vitusDanceAgent
+create vitusDanceAgent
+create vitusDanceAgent
+create glove
+create vitusDance
+set tile 1 virologists virologist 1
+set tile 1 virologists virologist 2
+set virologist 1 bag bag 1
+add bag 1 agents agent 1
+add bag 1 agents agent 2
+add bag 1 agents agent 3
+add virologist 2 wear protectiveGear 1
+info protectiveGear 1 all
+virologist 1 useAgent 2 1
+virologist 1 useAgent 2 2
+virologist 1 useAgent 2 3
+info protectiveGear 1 all

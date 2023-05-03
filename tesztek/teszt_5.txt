@@ -1,0 +1,7 @@
+create laboratory
+create virologist
+set tile 1 virologists virologist 1
+create geneticCode
+set tile 1 geneticCode 1
+virologist 1 palpatewall
+info virologist 1 all

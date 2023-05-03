@@ -1,0 +1,15 @@
+create tile
+create virologist
+create virologist
+create bag
+create untouchableAgent
+create untouchable
+set tile 1 virologists virologist 1
+set tile 1 virologists virologist 2
+set virologist 1 bag bag 1
+add bag 1 agents agent 1
+virologist 1 useAgent 2 1
+info tile 1 virologists
+info virologist 1 all
+info virologist 2 all
+info bag 1 agents

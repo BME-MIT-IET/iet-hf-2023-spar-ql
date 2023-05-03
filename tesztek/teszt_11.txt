@@ -1,0 +1,26 @@
+create shelter
+create virologist
+create virologist
+create bag
+create bag
+create paralyzeAgent
+create paralyzed
+set tile 1 virologists virologist 1
+set tile 1 virologists virologist 2
+set virologist 1 bag bag 1
+set virologist 2 bag bag 2
+add bag 1 agents agent 1
+create cape
+set tile 1 p_g 1
+virologist 2 collectProtectiveGear
+info virologist 1 all
+info virologist 2 all
+info bag 1 all
+info bag 2 all
+set bag 1 size 0
+virologist 1 useAgent 2 1
+virologist 1 takeGear 2 1
+info virologist 1 all
+info virologist 2 all
+info bag 1 all
+info bag 2 all

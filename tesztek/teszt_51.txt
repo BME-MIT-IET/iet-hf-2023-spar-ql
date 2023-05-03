@@ -1,0 +1,10 @@
+create virologist
+create bearDanceAgent
+create laboratory
+create bearDanceAgent
+create bearDance
+set tile 1 virologists virologist 1
+laboratory laboratoryInfect virologist 1 
+add virologist 1 effects effect 1
+info tile 1 virologists
+info virologist 1 all

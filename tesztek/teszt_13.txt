@@ -1,0 +1,11 @@
+create tile
+create virologist
+create forgetAgent
+create bag
+set tile 1 virologists virologist 1
+set virologist 1 bag bag 1
+add bag 1 agents agent 1
+virologist 1 useAgent 1 1
+info tile 1 virologistst
+info virologist 1 all
+intfo bag 1 agents

@@ -1,0 +1,31 @@
+create tile
+create virologist
+create virologist
+create laboratory
+create laboratory
+create bearDance
+create cape
+create axe
+create bag
+set bag 1 size 30
+set virologist 1 bag bag 1
+set tile 1 virologists virologist 2
+set tile 2 virologists virologist 1
+add virologist 1 wear protectiveGear 1
+add virologist 1 wear protectiveGear 2
+create geneticCode
+set tile 2 geneticCode 1
+set tile 3 geneticCode 1
+set tile 1 adjacentTiles 2
+set tile 1 adjacentTiles 3
+virologist 1 move tile 1
+virologist 2 move tile 3
+tile 3 LaboratoryInfect virologist 2
+add virologist 2 effects effect 1
+virologist 1 move tile 3
+attack virologist 2
+info bag 1 all
+info tile 2 all
+info tile 3 all
+info tile 1 all
+info virologist 1 all

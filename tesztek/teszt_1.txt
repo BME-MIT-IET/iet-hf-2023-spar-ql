@@ -1,0 +1,34 @@
+create tile
+create shelter
+create shelter
+create shelter
+create shelter
+create storage
+create laboratory
+set tile 1 adjacentTiles 2
+set tile 1 adjacentTiles 3
+set tile 1 adjacentTiles 5
+set tile 1 adjacentTiles 6
+set tile 1 adjacentTiles 7
+set tile 3 adjacentTiles 4
+create axe
+create cape
+create bonusBag
+create glove
+set tile 2 p_g 1
+set tile 3 p_g 3
+set tile 4 p_g 4
+set tile 5 p_g 2
+create geneticCode
+set tile 7 geneticCode 1
+create TDP
+set tile 6 materials 1
+create virologist
+set tile 3 virologists virologist 1
+create bag
+set virologist 1 bag bag 1
+info tile 3 all
+info tile 6 all
+info tile 7 all
+info virologist 1 all
+info protectivegear 2 all
