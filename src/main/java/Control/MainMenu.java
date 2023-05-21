@@ -11,6 +11,7 @@ import java.io.IOException;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class MainMenu {
+    private JFrame frame;
     private JRadioButton rMap1;
     private JRadioButton rMap2;
     private JRadioButton rPlayers4;
@@ -39,8 +40,8 @@ public class MainMenu {
      * Létrehozza az ablakot
      */
     public void init(){
-        JFrame newGame = new JFrame("New Game");
-        newGame.setSize(300,500);
+        frame = new JFrame("New Game");
+        frame.setSize(300,500);
         JPanel jPanel = new JPanel(new BorderLayout());
         JPanel top = new JPanel(new BorderLayout());
         JPanel maps = new JPanel(new GridLayout(0,1));
@@ -50,15 +51,21 @@ public class MainMenu {
         JPanel playres = new JPanel(new GridLayout(0,3));
 
         rMap1 = new JRadioButton("Map1");
+        rMap1.setName("rMap1");
         rMap2 = new JRadioButton("Map2");
+        rMap2.setName("rMap2");
         final ButtonGroup mapbuttons = new ButtonGroup();
         mapbuttons.add(rMap1);
         mapbuttons.add(rMap2);
         rMap1.setSelected(true);
+        rMap2.setSelected(false);
 
         rPlayers4 = new JRadioButton("4 playres");
+        rPlayers4.setName("rPlayers4");
         rPlayers5 = new JRadioButton("5 playres");
+        rPlayers5.setName("rPlayers5");
         rPlayers6 = new JRadioButton("6 playres");
+        rPlayers6.setName("rPlayers6");
         final ButtonGroup playerbuttons = new ButtonGroup();
         playerbuttons.add(rPlayers4);
         playerbuttons.add(rPlayers5);
@@ -84,6 +91,7 @@ public class MainMenu {
          * A játék indítására szolgáló gomb és annak action listener-je
          */
         bStartGame = new JButton("Start Game");
+        bStartGame.setName("bStartGame");
         bStartGame.addActionListener(e -> {
             int map = 0;
             int player = 0;
@@ -105,7 +113,7 @@ public class MainMenu {
             game.getMap().setMapNumber(map);
             game.getMap().setVirologistNumber(player);
             game.startGame();
-            newGame.setVisible(false);
+            frame.setVisible(false);
             if(gameMenu != null){
                 gameMenu.getFrame().setVisible(false);
             }
@@ -134,11 +142,15 @@ public class MainMenu {
 
         jPanel.add(top, BorderLayout.CENTER);
         jPanel.add(bottom, BorderLayout.PAGE_END);
-        newGame.add(jPanel);
+        frame.add(jPanel);
 
-        newGame.setVisible(true);
+        frame.setVisible(true);
         if(gameMenu == null){
-            newGame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+            frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         }
+    }
+
+    public JFrame getFrame() {
+        return frame;
     }
 }
