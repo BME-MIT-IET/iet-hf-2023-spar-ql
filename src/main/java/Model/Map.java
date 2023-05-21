@@ -630,10 +630,12 @@ public class Map {
 	 */
 	public void virologistDie(Virologist v){
 		int i = 0;
-		for(Virologist virologist : virologists){
-			if(v == virologist)
-				break;
-			i++;
+		if(virologists != null) {
+			for (Virologist virologist : virologists) {
+				if (v == virologist)
+					break;
+				i++;
+			}
 		}
 		if(i < game.getActive()){
 			game.setActiveDie();

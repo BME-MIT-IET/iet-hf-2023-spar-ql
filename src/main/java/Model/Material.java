@@ -20,10 +20,12 @@ public class Material extends Item {
 	 */
 	public void lessMaterial(long amount) {
 		ArrayList<Material> materials = virologist.getBag().getMaterials();
-		for(Material material : materials){
-			if(this.ItemEqual(material) && amount > 0){
-				virologist.getBag().Discard(material);
-				amount--;
+		if (materials != null) {
+			for (Material material : materials) {
+				if (this.ItemEqual(material) && amount > 0) {
+					virologist.getBag().Discard(material);
+					amount--;
+				}
 			}
 		}
 	}

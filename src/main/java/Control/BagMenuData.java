@@ -22,64 +22,60 @@ public class BagMenuData extends AbstractTableModel {
     public BagMenuData(ArrayList<Item> i){
         data = i;
         icons = new ArrayList<ImageIcon>();
-        for(Item item : data){
-            if(item instanceof Axe){
-                try {
-                    ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/axe.png")));
-                    icons.add(icon);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            else if(item instanceof Cape){
-                try {
-                    ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/cape.png")));
-                    icons.add(icon);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            else if(item instanceof BonusBag){
-                try {
-                    ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/bag.png")));
-                    icons.add(icon);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            else if(item instanceof Glove){
-                try {
-                    ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/gloves.png")));
-                    icons.add(icon);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            else if(item instanceof Agent){
-                try {
-                    ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/cream.png")));
-                    icons.add(icon);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            else if(item instanceof Material){
-                if(item.getName().equalsIgnoreCase("Valin") ||
-                        item.getName().equalsIgnoreCase("Szerin") ||
-                        item.getName().equalsIgnoreCase("Lizin")) {
+        if(data != null) {
+            for (Item item : data) {
+                if (item instanceof Axe) {
                     try {
-                        ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/amino-acids.png")));
+                        ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/axe.png")));
                         icons.add(icon);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }
-                else {
+                } else if (item instanceof Cape) {
                     try {
-                        ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/material.png")));
+                        ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/cape.png")));
                         icons.add(icon);
                     } catch (IOException e) {
                         e.printStackTrace();
+                    }
+                } else if (item instanceof BonusBag) {
+                    try {
+                        ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/bag.png")));
+                        icons.add(icon);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else if (item instanceof Glove) {
+                    try {
+                        ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/gloves.png")));
+                        icons.add(icon);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else if (item instanceof Agent) {
+                    try {
+                        ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/cream.png")));
+                        icons.add(icon);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else if (item instanceof Material) {
+                    if (item.getName().equalsIgnoreCase("Valin") ||
+                            item.getName().equalsIgnoreCase("Szerin") ||
+                            item.getName().equalsIgnoreCase("Lizin")) {
+                        try {
+                            ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/amino-acids.png")));
+                            icons.add(icon);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        try {
+                            ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/material.png")));
+                            icons.add(icon);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }

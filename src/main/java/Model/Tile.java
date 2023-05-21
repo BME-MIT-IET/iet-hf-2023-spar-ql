@@ -113,9 +113,11 @@ public class Tile {
 	 */
 	public Virologist GetOtherVirologist(Virologist v) {
 		if (virologists.size() > 1) {
-			for (Virologist virologist : virologists) {
-				if (virologist != v) {
-					return virologist;
+			if(virologists != null) {
+				for (Virologist virologist : virologists) {
+					if (virologist != v) {
+						return virologist;
+					}
 				}
 			}
 		}

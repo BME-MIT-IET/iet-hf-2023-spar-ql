@@ -24,13 +24,15 @@ public class GeneticCodeMenuData extends AbstractTableModel {
     public GeneticCodeMenuData(ArrayList<GeneticCode> i){
        ArrayList<Agent> agents = new ArrayList<>();
         icons = new ArrayList<ImageIcon>();
-        for(GeneticCode codes : i){
-            agents.add(codes.getAgent());
-            try {
-                ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/code.png")));
-                icons.add(icon);
-            } catch (IOException e) {
-                e.printStackTrace();
+        if (i != null) {
+            for (GeneticCode codes : i) {
+                agents.add(codes.getAgent());
+                try {
+                    ImageIcon icon = new ImageIcon(ImageIO.read(new File("images/code.png")));
+                    icons.add(icon);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
         data = agents;

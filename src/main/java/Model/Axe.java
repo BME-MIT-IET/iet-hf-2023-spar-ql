@@ -27,9 +27,11 @@ public class Axe extends ProtectiveGear{
     public void takeAway(Virologist v) {
         v.getBag().Discard(this);
         ArrayList<ProtectiveGear> wear = v.getWear();
-        for(ProtectiveGear pg : wear){
-            if(this == pg){
-                v.Unwear(this);
+        if(wear != null) {
+            for (ProtectiveGear pg : wear) {
+                if (this == pg) {
+                    v.Unwear(this);
+                }
             }
         }
     }

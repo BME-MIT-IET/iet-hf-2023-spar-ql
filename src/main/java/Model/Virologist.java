@@ -161,10 +161,12 @@ public class Virologist {
 	public void UseAgent(Virologist v, Agent a, boolean throwback) {
 		if(!v.getUntouchable()){
 			if(throwback){
-				for(ProtectiveGear gear : v.getWear()){
-					if(gear instanceof Glove){
-						gear.Use(this, a);
-						break;
+				if (v.getWear() != null) {
+					for (ProtectiveGear gear : v.getWear()) {
+						if (gear instanceof Glove) {
+							gear.Use(this, a);
+							break;
+						}
 					}
 				}
 			}
@@ -319,11 +321,13 @@ public class Virologist {
 	public boolean useMaterials(ArrayList<Material> neededMaterials) {
 		ArrayList<Material> need = new ArrayList<>();
 		for(int i = 0; i < neededMaterials.size(); i++){
-			for(Material material : bag.getMaterials()){
-				if(material.ItemEqual(neededMaterials.get(i))){
-					need.add(material);
-					bag.Discard(material);
-					break;
+			if(bag.getMaterials() != null) {
+				for (Material material : bag.getMaterials()) {
+					if (material.ItemEqual(neededMaterials.get(i))) {
+						need.add(material);
+						bag.Discard(material);
+						break;
+					}
 				}
 			}
 		}
@@ -331,8 +335,10 @@ public class Virologist {
 			return true;
 		}
 		else {
-			for(Material material : need){
-				bag.Add(material);
+			if (need != null) {
+				for (Material material : need) {
+					bag.Add(material);
+				}
 			}
 			return false;
 		}
@@ -363,19 +369,19 @@ public class Virologist {
 	public void VitusDanceActionPerform()
 	{
 		List<Effects> effects=this.getEffects();
-		for (Effects e : effects)
-		{
-			if (e instanceof VitusDance)
-			{
-				Tile tile=this.getTile();
-				ArrayList<Tile> adjecentTiles=tile.getAdjacentTiles();
-				int size= adjecentTiles.size();
-				Random rand=new Random();
-				int intRandom=rand.nextInt(size);
-				Tile selectedTile=adjecentTiles.get(intRandom);
-				int selectedID=selectedTile.getId();
-				this.Move(selectedID);
-				return;
+		if (effects != null) {
+			for (Effects e : effects) {
+				if (e instanceof VitusDance) {
+					Tile tile = this.getTile();
+					ArrayList<Tile> adjecentTiles = tile.getAdjacentTiles();
+					int size = adjecentTiles.size();
+					Random rand = new Random();
+					int intRandom = rand.nextInt(size);
+					Tile selectedTile = adjecentTiles.get(intRandom);
+					int selectedID = selectedTile.getId();
+					this.Move(selectedID);
+					return;
+				}
 			}
 		}
 		return;
@@ -388,43 +394,40 @@ public class Virologist {
 	public void BearDanceActionPerform()
 	{
 		List<Effects> effects=this.getEffects();
-		for (Effects e : effects)
-		{
-			if (e instanceof BearDance)
-			{
-				/**
-				 * Ha a lépés elött van mellette valaki
-				 */
-				Tile tile=this.getTile();
-				Virologist otherVirologist=tile.GetOtherVirologist(this);
-				if(otherVirologist!=null)
-				{
-					BearDanceAgent bearDanceAgent=new BearDanceAgent(null,"bear dance");
-					this.UseAgent(otherVirologist,bearDanceAgent);
+		if (effects != null) {
+			for (Effects e : effects) {
+				if (e instanceof BearDance) {
+					/**
+					 * Ha a lépés elött van mellette valaki
+					 */
+					Tile tile = this.getTile();
+					Virologist otherVirologist = tile.GetOtherVirologist(this);
+					if (otherVirologist != null) {
+						BearDanceAgent bearDanceAgent = new BearDanceAgent(null, "bear dance");
+						this.UseAgent(otherVirologist, bearDanceAgent);
+					}
+					ArrayList<Tile> adjecentTiles = tile.getAdjacentTiles();
+					int size = adjecentTiles.size();
+					Random rand = new Random();
+					int intRandom = rand.nextInt(size);
+					Tile selectedTile = adjecentTiles.get(intRandom);
+					int selectedID = selectedTile.getId();
+					this.Move(selectedID);
+					/**
+					 * Ha a lépés után van mellette valaki és ha ez raktár elpusztítja az itt található anyagokat
+					 */
+					tile = this.getTile();
+					if (tile instanceof Storage) {
+						Storage storage = (Storage) tile;
+						storage.DestroyMaterial();
+					}
+					otherVirologist = tile.GetOtherVirologist(this);
+					if (otherVirologist != null) {
+						BearDanceAgent bearDanceAgent = new BearDanceAgent(null, "bear dance");
+						this.UseAgent(otherVirologist, bearDanceAgent);
+					}
+					return;
 				}
-				ArrayList<Tile> adjecentTiles=tile.getAdjacentTiles();
-				int size= adjecentTiles.size();
-				Random rand=new Random();
-				int intRandom=rand.nextInt(size);
-				Tile selectedTile=adjecentTiles.get(intRandom);
-				int selectedID=selectedTile.getId();
-				this.Move(selectedID);
-				/**
-				 * Ha a lépés után van mellette valaki és ha ez raktár elpusztítja az itt található anyagokat
-				 */
-				tile=this.getTile();
-				if (tile instanceof Storage)
-				{
-					Storage storage=(Storage)tile;
-					storage.DestroyMaterial();
-				}
-				otherVirologist=tile.GetOtherVirologist(this);
-				if(otherVirologist!=null)
-				{
-					BearDanceAgent bearDanceAgent=new BearDanceAgent(null,"bear dance");
-					this.UseAgent(otherVirologist,bearDanceAgent);
-				}
-				return;
 			}
 		}
 		return;
@@ -571,9 +574,11 @@ public class Virologist {
 	 */
 	public boolean getBearDance() {
 		List<Effects> effects = this.getEffects();
-		for (Effects e : effects) {
-			if (e instanceof BearDance) {
-				return true;
+		if (effects != null) {
+			for (Effects e : effects) {
+				if (e instanceof BearDance) {
+					return true;
+				}
 			}
 		}
 		return false;
@@ -585,9 +590,11 @@ public class Virologist {
 	 */
 	public boolean getVitusDance() {
 		List<Effects> effects = this.getEffects();
-		for (Effects e : effects) {
-			if (e instanceof VitusDance) {
-				return true;
+		if (effects != null) {
+			for (Effects e : effects) {
+				if (e instanceof VitusDance) {
+					return true;
+				}
 			}
 		}
 		return false;

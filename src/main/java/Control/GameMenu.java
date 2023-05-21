@@ -233,10 +233,12 @@ public class GameMenu implements ActionListener {
                     Virologist otherVirologist = game.getMap().getVirologists().get(game.getActive()).getTile().GetOtherVirologist(virologist);
                     boolean paralyzed = false;
                     if (otherVirologist.getEffects().size() > 0) {
-                        for (Effects effect : otherVirologist.getEffects()) {
-                            if (effect instanceof Paralyzed) {
-                                paralyzed = true;
-                                break;
+                        if (otherVirologist.getEffects() != null) {
+                            for (Effects effect : otherVirologist.getEffects()) {
+                                if (effect instanceof Paralyzed) {
+                                    paralyzed = true;
+                                    break;
+                                }
                             }
                         }
                     }
