@@ -29,6 +29,9 @@ public class GameMenu implements ActionListener {
     private GamePanel leftPanel;
     private Game game;
 
+    private MainMenu mainMenu;
+    private BagMenu bagmenu;
+
     public GameMenu(Game game){
         this.game = game;
         init();
@@ -66,6 +69,7 @@ public class GameMenu implements ActionListener {
         JPanel buttons = new JPanel(new GridLayout(0,1));
         lBag = new JLabel("Open Bag");
         bBag = new JButton("Bag");
+        bBag.setName("bBag");
         bBag.setActionCommand("bag");
         bBag.addActionListener(this);
 
@@ -216,11 +220,11 @@ public class GameMenu implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("newgame"))
         {
-            MainMenu mainMenu = new MainMenu(game, this);
+            mainMenu = new MainMenu(game, this);
         }
         if(game.isGamerunning()) {
             if (e.getActionCommand().equals("bag")) {
-                BagMenu Bagmenu = new BagMenu(game.getMap().getVirologists().get(game.getActive()), this);
+                bagmenu = new BagMenu(game.getMap().getVirologists().get(game.getActive()), this);
             }
             if (e.getActionCommand().equals("codes")) {
                 GeneticCodesMenu GCmenu = new GeneticCodesMenu(game.getMap().getVirologists().get(game.getActive()), this);
@@ -318,5 +322,13 @@ public class GameMenu implements ActionListener {
             v.getEffects().get(iter1).Step();
             iter1++;
         }
+    }
+
+    public MainMenu getMainMenu() {
+        return mainMenu;
+    }
+
+    public BagMenu getBagmenu() {
+        return bagmenu;
     }
 }

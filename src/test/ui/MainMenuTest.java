@@ -12,7 +12,7 @@ import org.junit.runners.MethodSorters;
 import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class UITestExample {
+public class MainMenuTest {
     private FrameFixture window;
     private Robot robot;
 
@@ -59,6 +59,12 @@ public class UITestExample {
 
         rMap2.click();
         rPlayers6.click();
+
+        try {
+            Thread.sleep(250);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         boolean rMap1Selected = rMap1.requireNotSelected().target().isSelected();
         boolean rMap2Selected = rMap2.requireSelected().target().isSelected();

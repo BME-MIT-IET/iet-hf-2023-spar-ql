@@ -157,4 +157,8 @@ public class MainMenu {
     public JFrame getGameMenuFrame() {
         return gameMenu.getFrame();
     }
+
+    public GameMenu getGameMenu() {
+        return gameMenu;
+    }
 }

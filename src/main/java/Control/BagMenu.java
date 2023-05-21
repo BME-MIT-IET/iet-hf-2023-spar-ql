@@ -8,6 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class BagMenu {
+    private JFrame bag;
     private JOptionPane jPopup;
     private JLabel lAgent;
     private JLabel lProtectiveGears;
@@ -37,7 +38,7 @@ public class BagMenu {
      * Létrehozza az ablakot és az előugró ablakokat, ha kell
      */
     public void init(){
-        JFrame bag = new JFrame("Bag");
+        bag = new JFrame("Bag");
         bag.setSize(new Dimension(400, 500));
         final JPanel jPanel = new JPanel(new BorderLayout());
         final JPanel grid = new JPanel(new GridLayout(0,1));
@@ -214,5 +215,9 @@ public class BagMenu {
         jPanel.add(jEmptyTop, BorderLayout.PAGE_START);
 
         bag.setVisible(true);
+    }
+
+    public JFrame getFrame() {
+        return bag;
     }
 }
