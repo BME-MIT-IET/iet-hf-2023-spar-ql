@@ -16,10 +16,12 @@ public class UITestExample {
     private FrameFixture window;
     private Robot robot;
 
+    private MainMenu mainMenu;
+
     @Before
     public void setUp() {
         Game game = new Game();
-        MainMenu mainMenu = new MainMenu(game);
+        mainMenu = new MainMenu(game);
 
         robot = BasicRobot.robotWithCurrentAwtHierarchy();
         window = new FrameFixture(robot, mainMenu.getFrame());
@@ -75,5 +77,18 @@ public class UITestExample {
     @Test
     public void test3_Start() {
         window.button("bStartGame").click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        boolean visible = window.target().isVisible();
+        assertFalse(visible);
+
+        window = new FrameFixture(robot, mainMenu.getGameMenuFrame());
+        String expectedTitle = "VakVirologusok";
+        String actualTitle = window.target().getTitle();
+        assertEquals(actualTitle, expectedTitle);
     }
 }
