@@ -1,6 +1,5 @@
 package test.ui;
 
-import Control.BagMenu;
 import Control.Game;
 import Control.GameMenu;
 import Control.MainMenu;
@@ -164,6 +163,13 @@ public class GameMenuTest {
     }
     @Test
     public void test7_Move(){
+        int[] point = gameMenu.getVirologist().getTile().getAdjacentTiles().get(0).getTheCenter();
+        Tile tile1 = gameMenu.getVirologist().getTile();
 
+        robot.click(gameMenu.getGamePanel(), new Point(point[0], point[1]));
+
+        Tile tile2 = gameMenu.getVirologist().getTile();
+
+        assertNotEquals(tile1, tile2);
     }
 }
