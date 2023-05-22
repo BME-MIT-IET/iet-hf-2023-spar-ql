@@ -4,6 +4,9 @@ import Control.BagMenu;
 import Control.Game;
 import Control.GameMenu;
 import Control.MainMenu;
+import Model.Laboratory;
+import Model.Shelter;
+import Model.Storage;
 import Model.Virologist;
 import org.assertj.swing.core.BasicRobot;
 import org.assertj.swing.core.Robot;
@@ -90,7 +93,22 @@ public class GameMenuTest {
     }
     @Test
     public void test4_Collect(){
+        int tries = 0;
+        while (gameMenu.getVirologist().getTile() instanceof Shelter ||
+                gameMenu.getVirologist().getTile() instanceof Storage ||
+                gameMenu.getVirologist().getTile() instanceof Laboratory ||
+                tries != game.getMap().getVirologists().size() - 1
+        ){
+            window.button("bEndTurn").click();
+            tries++;
+        }
 
+        if (gameMenu.getVirologist().getTile() instanceof Shelter ||
+                gameMenu.getVirologist().getTile() instanceof Storage ||
+                gameMenu.getVirologist().getTile() instanceof Laboratory)
+        {
+            window.button("bCollect").click();
+        }
     }
     @Test
     public void test5_Wear(){
