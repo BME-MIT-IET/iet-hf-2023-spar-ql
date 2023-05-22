@@ -4,10 +4,7 @@ import Control.BagMenu;
 import Control.Game;
 import Control.GameMenu;
 import Control.MainMenu;
-import Model.Laboratory;
-import Model.Shelter;
-import Model.Storage;
-import Model.Virologist;
+import Model.*;
 import org.assertj.swing.core.BasicRobot;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.fixture.FrameFixture;
@@ -93,23 +90,34 @@ public class GameMenuTest {
     }
     @Test
     public void test4_Collect(){
-        int tries = 0;
-        while (gameMenu.getVirologist().getTile() instanceof Shelter ||
-                gameMenu.getVirologist().getTile() instanceof Storage ||
-                gameMenu.getVirologist().getTile() instanceof Laboratory ||
-                tries != game.getMap().getVirologists().size() - 1
-        ){
-            window.button("bEndTurn").click();
-            tries++;
-        }
+        for (int i = 0; i < game.getMap().getVirologists().size() - 1; i++) {
+            Tile tile = gameMenu.getVirologist().getTile();
+            if (tile instanceof Laboratory){
+                window.button("bCollect").click();
 
-        if (gameMenu.getVirologist().getTile() instanceof Shelter ||
-                gameMenu.getVirologist().getTile() instanceof Storage ||
-                gameMenu.getVirologist().getTile() instanceof Laboratory)
-        {
-            window.button("bCollect").click();
+                assertEquals(gameMenu.getVirologist().getCodeCount(), 1);
+                assertEquals(window.label("lCodeCount").text(), Long.toString(gameMenu.getVirologist().getCodeCount()));
+            }
+            else if (tile instanceof Shelter) {
+                window.button("bCollect").click();
+
+                assertTrue(gameMenu.getVirologist().getBag().getUsedSize() > 0);
+                assertEquals(window.label("lBagSize").text(), gameMenu.getVirologist().getBag().getSize() +
+                        " / " + gameMenu.getVirologist().getBag().getUsedSize());
+            }
+            else if (tile instanceof Storage) {
+                window.button("bCollect").click();
+
+                assertTrue(gameMenu.getVirologist().getBag().getUsedSize() > 0);
+                assertEquals(window.label("lBagSize").text(), gameMenu.getVirologist().getBag().getSize() +
+                        " / " + gameMenu.getVirologist().getBag().getUsedSize());
+            }
+            else {
+                window.button("bEndTurn").click();
+            }
         }
     }
+
     @Test
     public void test5_Wear(){
         window.button("bWear").click();
@@ -122,6 +130,7 @@ public class GameMenuTest {
         String actualTitle = window.target().getTitle();
         assertEquals(actualTitle, expectedTitle);
     }
+
     @Test
     public void test6_EndTurn(){
         Virologist virologist1 = gameMenu.getVirologist();
@@ -138,12 +147,6 @@ public class GameMenuTest {
         assertEquals(window.label("lUntouchable").text(), Boolean.toString(virologist1.getUntouchable()));
 
         window.button("bEndTurn").click();
-
-        try {
-            Thread.sleep(200);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
 
         Virologist virologist2 = gameMenu.getVirologist();
         int v2Number = game.getActive();
