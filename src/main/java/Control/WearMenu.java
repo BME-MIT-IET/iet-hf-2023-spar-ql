@@ -9,6 +9,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class WearMenu {
+    private JFrame wearmenu;
     private JOptionPane jPopup;
     private JLabel lProtectiveGears;
     private JPanel pProtectiveGears;
@@ -30,7 +31,7 @@ public class WearMenu {
      * Létrehozza az ablakot és az előugró ablakokat, ha kell
      */
     public void init(){
-        JFrame wearmenu = new JFrame("Wear");
+        wearmenu = new JFrame("Wear");
         wearmenu.setSize(new Dimension(300, 300));
         final JPanel jPanel = new JPanel(new BorderLayout());
         final JPanel jEmptyLeft = new JPanel();
@@ -88,5 +89,9 @@ public class WearMenu {
         jPanel.add(jEmptyBottom, BorderLayout.PAGE_END);
 
         wearmenu.setVisible(true);
+    }
+
+    public JFrame getFrame() {
+        return wearmenu;
     }
 }
