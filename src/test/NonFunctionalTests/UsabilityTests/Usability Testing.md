@@ -30,7 +30,8 @@ A játék vége után nem akartak újra játszani.
 ### 4 Fázis: Teszteredmény analízis
 
 A játékosok összességében túl kicsinek találták a kicsi pályát
-Kritériumok. 
+Kritériumokra adott válaszokat összesítettem a 4 tesztelő pontszámait átlagoltam: 
+
 1. Pontszám: 7. Nincs nyelvi vagy egyéb akadája a játék jeleinek értelmezésének, de felmerült, hogy a játékosok színei ugyanolyanok, így azokat nehéz a körödön kívül identifikálni, illetve a statisztika menü is zavaros nehezen értelmezhető mi mit jelent. Többen nem értették a wear menü mit jelöl
    Javaslat: A statisztika menü szebb formázása. A játékosok színeinek változtatása, illetve lépéssorrendjük közlése. A wear-t átnevezni Apparellé. 
 
