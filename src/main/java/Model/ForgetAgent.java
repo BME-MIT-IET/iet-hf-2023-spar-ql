@@ -21,7 +21,7 @@ public class ForgetAgent extends Agent {
 	 * Elveszi a virológustól a genetikai kódjait
 	 * @param v A virológus akitől elveszi a kódokat
 	 */
-	public void takeAwayCode(Virologist v) {
+	private void takeAwayCode(Virologist v) {
 		v.getGeneticCodes().clear();
 		v.setCodeCount(0);
 	}
