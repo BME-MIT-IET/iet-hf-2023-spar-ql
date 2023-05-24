@@ -34,11 +34,7 @@ public class GameMenuTest {
         window = new FrameFixture(robot, mainMenu.getFrame());
 
         window.button("bStartGame").click();
-        try {
-            Thread.sleep(200);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+
         gameMenu = mainMenu.getGameMenu();
         window = new FrameFixture(robot, mainMenu.getGameMenuFrame());
 
