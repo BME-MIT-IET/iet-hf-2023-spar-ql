@@ -32,13 +32,16 @@ class UntouchableTest extends EffectsTest {
         testAgent.setTimeEffected(8);
         testAgent.Step();
         assertEquals(7, testAgent.getTime());
+        assertTrue(dummyVir.getUntouchable());
         testAgent.setVirologist(dummyVir);
         dummyVir.addEffect(testAgent);
         for(int i = 0; i < 6; i++){
             testAgent.Step();
             assertEquals(testAgent, dummyVir.getEffects().get(0));
+            assertTrue(dummyVir.getUntouchable());
         }
         testAgent.Step();
         assertNull(dummyVir.getEffects().get(0));
+        assertFalse(dummyVir.getUntouchable());
     }
 }

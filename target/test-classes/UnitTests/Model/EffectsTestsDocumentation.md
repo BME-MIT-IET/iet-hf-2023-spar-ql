@@ -16,14 +16,14 @@ UntouchableTest extends EffectsTest -> Tesztelt funckiók: Untouchable minden pu
 
 Eredmény: FAILED setTimeEffected nem várt működést hajt végre, az effektus által tartalmazott virológust is használni akarja. 
 
-ParalyzedTest extends EffectsTest -> Tesztelt funckiók: Paralyzed  minden publikus metódusa
+ParalyzeAndUnstoppableAgentTest extends EffectsTest -> Tesztelt funckiók: ParalyzeAgent és UnstoppableAgent minden publikus metódusa
 
 Eredmény: Passed
 
-VitusDanceTest extends EffectsTest -> Tesztelt funckiók: VitusDance minden publikus metódusa
+VitusDanceAgentTest extends EffectsTest -> Tesztelt funckiók: VitusDanceAgent minden publikus metódusa
 
 Eredmény: Passed
 
-BearDanceTest extends EffectsTest -> Tesztelt funckiók: BearDance minden publikus metódusa
+ForgetAgentTest extends EffectsTest -> Tesztelt funckiók: ForgetAgent minden publikus metódusa
 
 Eredmény: Passed 
