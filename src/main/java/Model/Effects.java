@@ -1,9 +1,15 @@
 package Model;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * A virológusra ható ágensek ősosztálya.
  */
 public abstract class Effects implements Steppable{
+
+
+
 	protected int id;
 	Virologist virologist;
 
