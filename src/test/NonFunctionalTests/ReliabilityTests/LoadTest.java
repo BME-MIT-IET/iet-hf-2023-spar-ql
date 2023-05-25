@@ -4,7 +4,6 @@ import Control.Game;
 import Control.MainMenu;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.sonatype.guice.bean.containers.Main;
 
 import javax.swing.*;
 
