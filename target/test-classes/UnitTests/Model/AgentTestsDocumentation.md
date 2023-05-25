@@ -16,7 +16,7 @@ BearDanceAgentTest extends AgentTest -> Tesztelt funckiók: BearDanceAgent minde
 
 Eredmény: Passed 
 
-ParalyzeAndUnstoppableAgentTest extends AgentTest -> Tesztelt funckiók: ParalyzeAgent és UnstoppableAgent minden publikus metódusa
+BearDanceAgentTest extends AgentTest -> Tesztelt funckiók: ParalyzeAgent és UnstoppableAgent minden publikus metódusa
 
 Eredmény: Passed 
 
