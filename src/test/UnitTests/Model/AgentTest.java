@@ -11,8 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AgentTest  {
 
-
-
     Virologist dummyVir = new Virologist() {
         Effects dummyEffect;
 
