@@ -46,21 +46,21 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>5.3.1</version>
             <scope>test</scope>
         </dependency>
-    </dependencies>
 
-    <dependencies>
         <dependency>
             <groupId>org.owasp</groupId>
             <artifactId>dependency-check-maven</artifactId>
@@ -72,6 +72,8 @@
             <artifactId>jazzer-junit</artifactId>
             <version>0.15.0</version>
         </dependency>
+
     </dependencies>
+
 
 </project>
