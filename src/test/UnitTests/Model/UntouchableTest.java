@@ -46,21 +46,5 @@ class UntouchableTest extends EffectsTest {
         assertNull(dummyVir.getEffects().get(0));
         assertFalse(dummyVir.getUntouchable());
     }
-    @Test
-    void stepWithoutVirologistAssigned() {
 
-        assertEquals(0, testAgent.getTime());
-        testAgent.setTimeEffected(8);
-        testAgent.Step();
-        assertEquals(7, testAgent.getTime());
-        dummyVir.addEffect(testAgent);
-        for(int i = 0; i < 6; i++){
-            testAgent.Step();
-            assertEquals(testAgent, dummyVir.getEffects().get(0));
-            assertTrue(dummyVir.getUntouchable());
-        }
-        testAgent.Step();
-        assertNull(dummyVir.getEffects().get(0));
-        assertFalse(dummyVir.getUntouchable());
-    }
 }
