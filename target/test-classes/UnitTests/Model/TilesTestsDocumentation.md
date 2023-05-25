@@ -29,3 +29,11 @@ Gyűjthető objektum visszaadása (Tile.GetCollectable -> Test_GetCollectable) E
 Másik virológus visszaadása a mezőről, ha nincs más virológus a mezőn (Tile.GetOtherVirologist -> Test_GetOtherVirologist_WhenThereIsNoOtherVirologist) Eredmény: PASSED
 
 Másik virológus visszaadása a mezőről, ha van más virológus a mezőn (Tile.GetOtherVirologist -> Test_GetOtherVirologist_WhenThereIsOtherVirologist) Eredmény: PASSED
+
+### ***LaboratoryTest***
+
+#### ***Tesztelt funkciók:***
+
+Virológus fogadása, ha nincs medvetánc a mezőn (Laboratory.Accept -> Test_Accept_WhenBearDanceNotNull) Eredmény: PASSED
+
+Gyűjthető objektum visszaadása (Laboratory.GetCollectable -> Test_GetCollectable) Eredmény: PASSED
