@@ -1,4 +1,4 @@
-package test.ui;
+package ui;
 
 import Control.Game;
 import Control.GameMenu;
@@ -17,7 +17,9 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import java.awt.*;
+import java.util.ArrayList;
 
+import static org.assertj.swing.data.TableCell.row;
 import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -51,6 +53,7 @@ public class BagMenuTest {
 
     @Test
     public void test1_BagDropItems() {
+        //Drop protectiveGear
         Virologist activeVirologist = game.getMap().getVirologists().get(game.getActive());
         activeVirologist.getBag().Add(new Glove("Glove"));
         assertEquals(activeVirologist.getBag().getProtectiveGears().size(), 1);
@@ -60,9 +63,49 @@ public class BagMenuTest {
         assertTrue(visible);
 
         window = new FrameFixture(robot, gameMenu.getBagmenu().getFrame());
-        window.panel("pProtectiveGears").table("protectiveGearTable").click(TableCell(0, 0), MouseButton.LEFT_BUTTON);
-        window.optionPane(Timeout()).buttonWithText("Discard!").click();
+        window.panel("pProtectiveGears").table("protectiveGearTable").cell(row(0).column(0)).click();
+        window.optionPane().buttonWithText("Discard!").click();
         assertEquals(activeVirologist.getBag().getProtectiveGears().size(), 0);
+
+        //Drop material
+        activeVirologist.getBag().Add(new Material("TDP"));
+        assertEquals(activeVirologist.getBag().getMaterials().size(), 1);
+        window = new FrameFixture(robot, gameMenu.getFrame());
+        window.button("bBag").click();
+
+        visible = window.target().isVisible();
+        assertTrue(visible);
+
+        window = new FrameFixture(robot, gameMenu.getBagmenu().getFrame());
+        window.panel("pMaterials").table("materialTable").cell(row(0).column(0)).click();
+        window.optionPane().buttonWithText("Discard!").click();
+        assertEquals(activeVirologist.getBag().getMaterials().size(), 0);
+
+        //Drop agent
+        ArrayList<Material> agent2materials = new ArrayList<>();
+        agent2materials.add(new Material("dUTP"));
+        agent2materials.add(new Material("dUTP"));
+        agent2materials.add(new Material("CDP"));
+        agent2materials.add(new Material("CDP"));
+        agent2materials.add(new Material("Szerin"));
+        agent2materials.add(new Material("Szerin"));
+        agent2materials.add(new Material("Szerin"));
+        UntouchableAgent untouchableAgent = new UntouchableAgent(agent2materials, "Untouchable agent");
+
+        activeVirologist.getBag().Add(untouchableAgent);
+        assertEquals(activeVirologist.getBag().getAgents().size(), 1);
+        window = new FrameFixture(robot, gameMenu.getFrame());
+
+        window.button("bBag").click();
+
+        visible = window.target().isVisible();
+        assertTrue(visible);
+
+        window = new FrameFixture(robot, gameMenu.getBagmenu().getFrame());
+        window.panel("pAgent").table("agentTable").cell(row(0).column(0)).click();
+        window.optionPane().buttonWithText("Discard!").click();
+        assertEquals(activeVirologist.getBag().getAgents().size(), 0);
+
     }
 
     @Test
@@ -78,8 +121,8 @@ public class BagMenuTest {
         assertTrue(visible);
 
         window = new FrameFixture(robot, gameMenu.getBagmenu().getFrame());
-        window.panel("pProtectiveGears").table("protectiveGearTable").click(TableCell(0, 0), MouseButton.LEFT_BUTTON);
-        window.optionPane(Timeout()).buttonWithText("Wear!").click();
+        window.panel("pProtectiveGears").table("protectiveGearTable").cell(row(0).column(0)).click();
+        window.optionPane().buttonWithText("Wear!").click();
         assertEquals(activeVirologist.getBag().getProtectiveGears().size(), 1);
         assertEquals(activeVirologist.getWear().size(), 1);
     }

@@ -65,8 +65,11 @@ public class BagMenu {
         materials = new BagMenuData(new ArrayList<Item>(virologistBag.getMaterials()));
 
         pAgent.setLayout(new BorderLayout());
+        pAgent.setName("pAgent");
         pProtectiveGears.setLayout(new BorderLayout());
+        pProtectiveGears.setName("pProtectiveGears");
         pMaterials.setLayout(new BorderLayout());
+        pMaterials.setName("pMaterials");
 
         /**
          * a táblázatok beállítása
@@ -81,8 +84,12 @@ public class BagMenu {
         protectiveGearTable.setTableHeader(null);
         materialTable.setTableHeader(null);
         agentTable.setRowHeight(20);
+        agentTable.setName("agentTable");
         protectiveGearTable.setRowHeight(20);
+        protectiveGearTable.setName("protectiveGearTable");
         materialTable.setRowHeight(20);
+        materialTable.setName("materialTable");
+
         agentTable.getColumnModel().getColumn(0).setPreferredWidth(20);
         agentTable.getColumnModel().getColumn(1).setPreferredWidth(300);
         protectiveGearTable.getColumnModel().getColumn(0).setPreferredWidth(20);
