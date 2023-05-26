@@ -60,12 +60,6 @@ public class MainMenuTest {
         rMap2.click();
         rPlayers6.click();
 
-        try {
-            Thread.sleep(250);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
         boolean rMap1Selected = rMap1.requireNotSelected().target().isSelected();
         boolean rMap2Selected = rMap2.requireSelected().target().isSelected();
         boolean rPlayers4Selected = rPlayers4.requireNotSelected().target().isSelected();
@@ -83,11 +77,6 @@ public class MainMenuTest {
     @Test
     public void test3_Start() {
         window.button("bStartGame").click();
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
 
         boolean visible = window.target().isVisible();
         assertFalse(visible);
