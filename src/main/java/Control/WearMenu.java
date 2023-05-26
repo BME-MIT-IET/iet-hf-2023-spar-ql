@@ -38,6 +38,7 @@ public class WearMenu {
         final JPanel jEmptyRight = new JPanel();
         final JPanel jEmptyBottom = new JPanel();
         pProtectiveGears = new JPanel();
+        pProtectiveGears.setName("pProtectiveGears");
         lProtectiveGears = new JLabel("Protective gears");
 
         /**
@@ -52,6 +53,7 @@ public class WearMenu {
         protectiveGearTable.setFillsViewportHeight(true);
         protectiveGearTable.setTableHeader(null);
         protectiveGearTable.setRowHeight(20);
+        protectiveGearTable.setName("protectiveGearTable");
         protectiveGearTable.getColumnModel().getColumn(0).setPreferredWidth(20);
         protectiveGearTable.getColumnModel().getColumn(1).setPreferredWidth(200);
         protectiveGearTable.setShowGrid(false);
