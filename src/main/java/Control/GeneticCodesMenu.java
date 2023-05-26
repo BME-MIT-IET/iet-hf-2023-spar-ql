@@ -41,10 +41,12 @@ public class GeneticCodesMenu {
          */
         geneticcodes = new GeneticCodeMenuData(new ArrayList<GeneticCode>(virologist.getGeneticCodes()));
         pCodes.setLayout(new BorderLayout());
+        pCodes.setName("pCodes");
         /**
          * a táblázat beállítása
          */
         geneticCodeTable = new JTable(geneticcodes);
+        geneticCodeTable.setName("geneticCodeTable");
         geneticCodeTable.setFillsViewportHeight(true);
         geneticCodeTable.setTableHeader(null);
         geneticCodeTable.setRowHeight(20);
