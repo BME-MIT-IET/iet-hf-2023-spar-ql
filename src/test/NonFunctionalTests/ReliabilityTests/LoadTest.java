@@ -4,40 +4,13 @@ import Control.Game;
 import Control.MainMenu;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.sonatype.guice.bean.containers.Main;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
-import javax.swing.*;
-
-import java.awt.*;
-import java.util.Scanner;
-
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
 
 class LoadTest {
 
-    Thread checker = new Thread() {
-        volatile boolean escape = false;
-        @Override
-        public void run() {
-
-            while (!escape) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-
-                try {
-                    setUpTestEscape(firstStart, 2000);
-                    setUpTestEscape(secondStart, 2000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-
-                escape = true;
-            }
-        }
-    };
 
     private class StartThread extends Thread {
         volatile boolean exit = false;
@@ -46,11 +19,6 @@ class LoadTest {
             this.exit = true;
         }
 
-        MainMenu mainMenu;
-
-        public MainMenu getMainMenu () {
-            return mainMenu ;
-        }
         @Override
         public void run() {
             Game game = new Game();
@@ -62,29 +30,44 @@ class LoadTest {
             System.out.println("Closed");
         }
     }
+
     public void setUpTestEscape(StartThread startThread, int runTime) throws InterruptedException {
         Thread.sleep(runTime);
         startThread.setExit();
     }
 
-    StartThread firstStart;
-    StartThread secondStart;
+    ArrayList<StartThread> threadArray;
     @BeforeEach
     void SetUp() {
-        firstStart  = new StartThread();
-        secondStart  = new StartThread();
+        threadArray = new ArrayList<>();
     }
 
-    @Test
-    void main() throws InterruptedException {
-        firstStart.start();
-        secondStart.start();
-        checker.start();
-        System.out.println("Checked");
+
+    @ParameterizedTest
+    @ValueSource(ints = {10, 100})
+    void main( int numberOfThreads){
+        for(int i = 0; i < 100; i++) {
+            threadArray.add(new StartThread());
+        }
+
+        for (StartThread t : threadArray) {
+            t.start();
+            try {
+                setUpTestEscape(t, 1800 );
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         try {
-            firstStart.join();
-            firstStart.join();
+            for (StartThread t : threadArray) {
+                t.join();
+            }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
