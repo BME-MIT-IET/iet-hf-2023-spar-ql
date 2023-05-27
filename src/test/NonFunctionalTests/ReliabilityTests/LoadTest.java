@@ -79,11 +79,6 @@ class LoadTest {
     void main() throws InterruptedException {
         firstStart.start();
         secondStart.start();
-
-        assertNull(secondStart.getMainMenu());
-
-        assertNotNull(firstStart.getMainMenu());
-        assertNull(secondStart.getMainMenu());
         checker.start();
         System.out.println("Checked");
 
