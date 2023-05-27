@@ -93,3 +93,58 @@ Ebben a tesztben lekérjük a virológus 0-dik szomszédos mezőjét és ennek a
 középpontját. Majd lekérjük az aktuális mezőt, amin a virológus van.
 Ezt követően a robottal a játéktér megjelenítő panelen a lekért pontra kattintunk.
 Majd lekérjük az új mezőt és összehasonlítjuk az előző mezővel.
+
+## Bag menu tesztelése
+
+### test1_BagDropItems
+
+Leteszteli, hogy tudunk-e a Bagmenuből kidobni tárgyakat.
+Három fajta tárgy van: ProtectiveGear, Material, Agent.
+Mindegyiket külön teszteljük, a tesztelés menete azonban hasonló mindegyiknél:
+Inicializációs állapot: mindegyik tesztesetnél a táskát feltöltjük az adott itemmel.
+Ellenőrzi, hogy sikeresen hozzá lett-e adva.
+Ezek után a robottal a táskára kattintunk, majd az adott tárgyra, és a felugró ablakon a discardra a tárgy eltávolításához.
+Ellenőrzi, hogy a tárgy sikeresen el lett-e távolítva a táskából.
+
+### test2_BagWearItems
+
+Ez a teszt metódus ellenőrzi a táskából való tárgyak felvételek funkcionalitását. Az alábbi műveleteket végzi el:
+Hozzáad egy Glove objektumot az aktív virológus táskájához és ellenőrzi, hogy sikeresen hozzá lett-e adva.
+Ellenőrzi, hogy a Glove jelenleg nem viselt a virológus által.
+Megnyitja a BagMenut, majd kattint az első sorra a védőfelszerelés táblázatban a BagMenuben, ezután "Wear!" opcióra kattintva felveszi a Glove-ot
+Ezután ellenőrzi, hogy a védőfelszerelés sikeresen hozzá lett-e adva a táskából a viselt tárgyakhoz.
+
+## Wear menu tesztelése
+
+### test1_WearMenuUnWearItems
+
+A viselt tárgyak levételének funkcionalitását teszteli a következőképpen:
+Lekéri az aktív virológust a játék térképéről, majd hozzáad egy Glove objektumot a táskájához.
+Ellenőrzi, hogy a táskában 1 védőfelszerelés található.
+A virológus felveszi a táskájában lévő első védőfelszerelést.
+Ellenőrzi, hogy a virológus 1 védőfelszerelést visel.
+A robot rákattint a "Wear!" gombra a GameMenu ablakon.
+Ellenőrzi, hogy a WearMenu ablak látható.
+A robot rákattint az első cellára a védőfelszerelés táblázatban a WearMenuben.
+Rákattint az "Unwear!" feliratú gombra a megjelenő lehetőségek közül.
+Ellenőrzi, hogy a virológus nem visel védőfelszerelést, és a táskában továbbra is 1 védőfelszerelés található.
+
+### test2_WearMenuDiscardItems
+
+A viselt tárgyak kidobását teszteli a WearMenuben.
+Hasonlóan működik, mint az első teszt, de az "Unwear!" gomb helyett a "Discard!" gombra kattint.
+Ellenőrzi, hogy a virológus nem visel védőfelszerelést, és a táskájában sincs már egy védőfelszerelés sem.
+
+## GeneticCodesMenuTest
+
+### test1_MakeAgentFromGeneticCode
+
+Ágens létrehozását teszteljük.
+Tesztelésre kerül, hogy a létező GeneticCodeból és elegendő Materialból létre lehet-e hozni Agenteket.
+Ehhez először létrehozunk egy új Agentet (ParalyzeAgent) a hozzá tartozó Materialokkal.
+Az aktív virológus hozzáadja az Agent Materialjait a táskájához, majd megtanulja a genetikai kódot.
+Ellenőrizzük, hogy az Agent, Materialok és a GeneticCode megfelelően kerültek-e beállításra.
+A játék ablakon belül rákattintunk a "GeneticCodes" gombra, majd ellenőrizzük, hogy az ablak láthatóvá válik-e.
+Rákattintunk az első sorra a GeneticCodes menünek táblázatában.
+Rákattintunk a "Create Agent!" gombra az Agent létrehozásához.
+Ellenőrizzük, hogy az aktív virológus táskájában egy Agent található, valamint a Materialok száma annyival csökkent-e, mint amennyit felhasználtunk az Agent létrehozásához.
