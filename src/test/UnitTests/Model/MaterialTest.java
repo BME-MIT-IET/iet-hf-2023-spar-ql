@@ -32,7 +32,7 @@ public class MaterialTest {
         assertTrue(material.getVirologist().getBag().getUsedSize() == 2);
         material.lessMaterial(2);
         long result = material.getVirologist().getBag().getUsedSize();
-        assertTrue(material.getVirologist().getBag().getUsedSize() == 1);
+        assertTrue(result == 1);
     }
 
     // throws error because Material does not implement the Cloneable interface

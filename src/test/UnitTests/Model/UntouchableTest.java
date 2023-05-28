@@ -1,8 +1,6 @@
 package UnitTests.Model;
 
-import Model.Paralyzed;
 import Model.Untouchable;
-import Model.UntouchableAgent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,6 +20,8 @@ class UntouchableTest extends EffectsTest {
     @Test
     void testGetSetTime() {
         assertEquals(0, testAgent.getTime());
+        testAgent.setVirologist(dummyVir);
+
         testAgent.setTimeEffected(1);
         assertEquals(1,testAgent.getTime());
     }
@@ -29,11 +29,12 @@ class UntouchableTest extends EffectsTest {
     @Test
     void step() {
         assertEquals(0, testAgent.getTime());
+        testAgent.setVirologist(dummyVir);
+
         testAgent.setTimeEffected(8);
         testAgent.Step();
         assertEquals(7, testAgent.getTime());
         assertTrue(dummyVir.getUntouchable());
-        testAgent.setVirologist(dummyVir);
         dummyVir.addEffect(testAgent);
         for(int i = 0; i < 6; i++){
             testAgent.Step();

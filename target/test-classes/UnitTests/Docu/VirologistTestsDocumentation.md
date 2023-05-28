@@ -81,6 +81,8 @@ removeEffect: A virlógust a paraméterül kapott effect példányt az effect li
 
 Eredmény: PASSED
 
+
+
 Minden setter
 
 Eredmény: PASSED
