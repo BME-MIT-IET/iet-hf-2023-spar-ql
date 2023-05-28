@@ -45,6 +45,7 @@ public abstract class Item {
 		this.virologist = v;
 	}
 
+	public Virologist getVirologist() {return this.virologist; }
 	/**
 	 * Visszaadja a az osztály azonosítóját
 	 * @return id: azonosító szám
