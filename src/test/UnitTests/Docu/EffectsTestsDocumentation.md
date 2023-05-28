@@ -14,7 +14,7 @@ Eredmény: Passed
 
 UntouchableTest extends EffectsTest -> Tesztelt funckiók: Untouchable minden publikus metódusa
 
-Eredmény: FAILED setTimeEffected nem várt működést hajt végre, az effektus által tartalmazott virológust is használni akarja. 
+Eredmény: Passed
 
 ParalyzedTest extends EffectsTest -> Tesztelt funckiók: Paralyzed  minden publikus metódusa
 

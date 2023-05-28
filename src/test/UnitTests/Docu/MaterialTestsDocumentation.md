@@ -14,4 +14,4 @@ Eredmény: PASSED
 
 addMaterial: Csökkenti az azonos anyagok mennyiségét az anyaghoz rendelt virológuson a paraméterrel megkapott számmal.
 
-Eredmény: FAILED, OK: a Material osztály ezen metódusa this.clone()-t hív, pedig nem implementálja a Cloneable interfészt.
+Eredmény: PASSED
