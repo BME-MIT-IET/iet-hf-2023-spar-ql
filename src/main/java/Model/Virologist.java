@@ -593,5 +593,11 @@ public class Virologist {
 		return false;
 	}
 
+	public Map getMap(){
+		return this.map;
+	}
 
+	public VirologistView getView(){
+		return this.view;
+	}
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Az ágens elkészítéséhez szükséges anyagok ősosztálya
  */
-public class Material extends Item {
+public class Material extends Item implements Cloneable {
 	/**
 	 * Az anyagok konstruktora. Superrel beállítja a kapott nevet
 	 * @param name a neve
