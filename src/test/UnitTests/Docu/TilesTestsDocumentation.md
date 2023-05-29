@@ -37,3 +37,31 @@ Másik virológus visszaadása a mezőről, ha van más virológus a mezőn (Til
 Virológus fogadása, ha nincs medvetánc a mezőn (Laboratory.Accept -> Test_Accept_WhenBearDanceNotNull) Eredmény: PASSED
 
 Gyűjthető objektum visszaadása (Laboratory.GetCollectable -> Test_GetCollectable) Eredmény: PASSED
+
+A labor használja a medvetáncot a virológuson, ha az nem érinthetetlen és véletlen szám is jó (Laboratory.LaboratoryInfect -> Test_LaboratoryInfect_WhenVirologistIsNotUntouchableAndRandomIsGreater) Eredmény: PASSED
+
+Fertőzés megadása, ha a medevetánc null (Laboratory.isInfects -> Test_IsInfects_WhenBearDanceIsNull) Eredmény: PASSED
+
+Fertőzés megadása, ha a medevetánc nem null (Laboratory.isInfects -> Test_IsInfects_WhenBearDanceIsNotNull) Eredmény: PASSED
+
+### ***ShelterTest***
+
+#### ***Tesztelt funkciók:***
+
+Gyűjthető objektum visszaadása (Shelter.GetCollectable -> Test_GetCollectable) Eredmény: PASSED
+
+### ***StorageTest***
+
+#### ***Tesztelt funkciók:***
+
+Gyűjthető objektum visszaadása (Storage.GetCollectable -> Test_GetCollectable) Eredmény: PASSED
+
+Gyűjthető objektum beállítása, ha az anyagok listája null (Storage.setCollectable -> Test_SetCollectable_WhenMaterialsIsNull) Eredmény: PASSED
+
+Gyűjthető objektum beállítása, ha az anyagok listája nem null (Storage.setCollectable -> Test_SetCollectable_WhenMaterialsIsNotNull) Eredmény: PASSED
+
+Anyag visszaadása, ha az anyagok listája üres(Storage.Collect -> Test_Collect_WhenMaterialsSizeIsZero) Eredmény: PASSED
+
+Anyag visszaadása, ha az anyagok listája nem üresn (Storage.Collect -> Test_Collect_WhenMaterialsIsNotZero) Eredmény: PASSED
+
+Anyagok listájának kiürítése (Storage.DestroyMaterial -> Test_DestroyMaterial) Eredmény: PASSED
