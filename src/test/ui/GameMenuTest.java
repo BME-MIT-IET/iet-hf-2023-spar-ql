@@ -1,4 +1,4 @@
-package test.ui;
+package ui;
 
 import Control.Game;
 import Control.GameMenu;

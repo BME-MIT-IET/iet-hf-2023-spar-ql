@@ -148,3 +148,49 @@ A játék ablakon belül rákattintunk a "GeneticCodes" gombra, majd ellenőrizz
 Rákattintunk az első sorra a GeneticCodes menünek táblázatában.
 Rákattintunk a "Create Agent!" gombra az Agent létrehozásához.
 Ellenőrizzük, hogy az aktív virológus táskájában egy Agent található, valamint a Materialok száma annyival csökkent-e, mint amennyit felhasználtunk az Agent létrehozásához.
+
+
+## AttackTest
+
+### testAttack
+
+Azt a szcenáriót teszteljük, hogy egy virológus megfertőz egy másik virológust ágenssel.
+Az alanyt vitusdance ágenssel fertőzzük meg, ehhez szüksége van a támadónak egy táskára és benne egy vitusdance ágensre.
+A támadásnak még az is feltétele, hogy a 2 virológus egy mezőn legyen, így az elsőként sorra kerülő virológus lesz a célpont, a második a támadó.
+Ehhez azért van szükség, hogy le tudjuk kérni az áldozat mezőjét és beállítsuk a támadó mezőjét erre, egy mezőre helyezve a kettőt.
+Ehhez a kattintanunk kell az "End turn" gombra.
+Miután beállítottuk az értékeket megfelelően a szcenárió tesztelésére, ellenőrízzuk, hogy a 2 virológus különböző entitások.
+Rákattintunk a "Bag" gombra és az első ágensre a listából. Következőleg a "Use agent on other virologist".
+Végezetül leellenőrizzük, hogy a célpont megfertőzödött-e az ágenssel.
+
+## BearColorTest
+
+### testBearColor
+
+Azt a szcenáriót teszteljük, hogy egy virológus megfertőz egy másik virológust beardance ágenssel és az áldozat színe megfelelően változik-e.
+A teszt előkészítéséhez a támadónak adunk egy táskát egy beardance ágenssel. A támadót az áldozat mezőjére állítjuk, ehhez az "End turn" gombot meg kell nyomni.
+Miután beállítottuk az értékeket megfelelően a szcenárió tesztelésére, ellenőrízzuk, hogy a 2 virológus különböző entitások.
+Rákattintunk a "Bag" gombra és az első ágensre a listából. Következőleg a "Use agent on other virologist" majd "End turn" gombra.
+Végezetül leellenőrizzük, hogy az áldozat színe valóban fekete lett.
+
+## ZGameOverTest
+
+### gameOverNewGame
+
+Azt a szcenáriót teszteljük, hogy amikor egy virológus kielégíti a nyerési kondíciókat, akkor feljön-e a dialógus ablak és új játékot lehet-e ezen keresztül indítani.
+Ehhez az aktív virológus codeCount-ját 1-re állítjuk, hogy a következő inkrementálásnál nyerjen.
+Inicializálunk egy laboratórium mezőt egy vitusdance ágens genetikai kódjával, ezt a mezőt beállítjuk az aktív virológus mezőjének.
+Ezek után a "Collect"-re kattintunk, virológusunk megtanulja a genetikai kódot és ellenőrizzük, hogy a dialógus ablak megnyílt-e.
+Következőleg a "New Game!" gombra kattintunk és ellenőrizzük, hogy az újonnan megnyílt menü valóban látható-e.
+
+### gameOverZNewGame
+
+Azt a szcenáriót teszteljük, hogy amikor egy virológus kielégíti a nyerési kondíciókat, akkor feljön-e a dialógus ablak és ki lehet az egész programból lépni.
+Ehhez az aktív virológus codeCount-ját 1-re állítjuk, hogy a következő inkrementálásnál nyerjen.
+Inicializálunk egy laboratórium mezőt egy vitusdance ágens genetikai kódjával, ezt a mezőt beállítjuk az aktív virológus mezőjének.
+Ezek után a "Collect"-re kattintunk, virológusunk megtanulja a genetikai kódot és ellenőrizzük, hogy a dialógus ablak megnyílt-e.
+Következőleg a "Exit!" gombra kattintunk, amivel System.exit(0) kódsorra futunk, ami az egész szoftvert leállítja.
+A teszt sikeresnek tekinthető ha a státusza: "Test terminated"
+
+Fontos, hogy ezt a tesztet utolsóként indítsa a tesztelő, mert maga a tesztelési folyamatból is kilép a System.exit(0), amivel a soron következő tesztek státusza "terminated" lesz.
+Ezért kapott egy Z kezdést az osztály neve.

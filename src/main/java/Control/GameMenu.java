@@ -34,6 +34,8 @@ public class GameMenu implements ActionListener {
     private GeneticCodesMenu geneticCodesMenu;
     private WearMenu wearMenu;
 
+    private JFrame endgameFrame;
+
     public GameMenu(Game game){
         this.game = game;
         init();
@@ -197,11 +199,11 @@ public class GameMenu implements ActionListener {
             updateStats();
             if(game.getMap().getMapNumber() == 1 && game.getMap().getVirologists().get(game.getActive()).getCodeCount() == 2) {
                 game.endGame();
-                JFrame jFrame = new JFrame();
+                endgameFrame = new JFrame();
                 Object[] options = {"New Game!", "Exit!"};
-                int result = jPopup.showOptionDialog(jFrame, " Congratulations! You're the winner! \n What would you like to do?", "Game Ended", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
+                int result = jPopup.showOptionDialog(endgameFrame, " Congratulations! You're the winner! \n What would you like to do?", "Game Ended", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
                 if(result == 0){
-                    MainMenu mainMenu = new MainMenu(game, this);
+                    mainMenu = new MainMenu(game, this);
                 }
                 else if(result == 1){
                     System.exit(0);
@@ -214,7 +216,7 @@ public class GameMenu implements ActionListener {
                 Object[] options = {"New Game!", "Exit!"};
                 int result = jPopup.showOptionDialog(jFrame, " Congratulations! You're the winner! \n What would you like to do?", "Game Ended", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
                 if(result == 0){
-                    MainMenu mainMenu = new MainMenu(game, this);
+                    mainMenu = new MainMenu(game, this);
                 }
                 else if(result == 1){
                     System.exit(0);
@@ -374,4 +376,6 @@ public class GameMenu implements ActionListener {
     public GamePanel getLeftPanel() {
         return leftPanel;
     }
+
+    public JFrame getEndgameFrame() { return endgameFrame;}
 }
