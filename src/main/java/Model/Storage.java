@@ -102,4 +102,8 @@ public class Storage extends Tile {
 			}
 		}
 	}
+
+	public ArrayList<Material> getMaterials(){
+		return materials;
+	}
 }
