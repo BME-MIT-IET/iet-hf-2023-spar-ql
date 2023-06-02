@@ -9,6 +9,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class WearMenu {
+    private JFrame wearmenu;
     private JOptionPane jPopup;
     private JLabel lProtectiveGears;
     private JPanel pProtectiveGears;
@@ -30,13 +31,14 @@ public class WearMenu {
      * Létrehozza az ablakot és az előugró ablakokat, ha kell
      */
     public void init(){
-        JFrame wearmenu = new JFrame("Wear");
+        wearmenu = new JFrame("Wear");
         wearmenu.setSize(new Dimension(300, 300));
         final JPanel jPanel = new JPanel(new BorderLayout());
         final JPanel jEmptyLeft = new JPanel();
         final JPanel jEmptyRight = new JPanel();
         final JPanel jEmptyBottom = new JPanel();
         pProtectiveGears = new JPanel();
+        pProtectiveGears.setName("pProtectiveGears");
         lProtectiveGears = new JLabel("Protective gears");
 
         /**
@@ -51,6 +53,7 @@ public class WearMenu {
         protectiveGearTable.setFillsViewportHeight(true);
         protectiveGearTable.setTableHeader(null);
         protectiveGearTable.setRowHeight(20);
+        protectiveGearTable.setName("protectiveGearTable");
         protectiveGearTable.getColumnModel().getColumn(0).setPreferredWidth(20);
         protectiveGearTable.getColumnModel().getColumn(1).setPreferredWidth(200);
         protectiveGearTable.setShowGrid(false);
@@ -88,5 +91,9 @@ public class WearMenu {
         jPanel.add(jEmptyBottom, BorderLayout.PAGE_END);
 
         wearmenu.setVisible(true);
+    }
+
+    public JFrame getFrame() {
+        return wearmenu;
     }
 }

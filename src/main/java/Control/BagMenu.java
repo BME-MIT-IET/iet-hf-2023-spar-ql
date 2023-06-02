@@ -8,6 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class BagMenu {
+    private JFrame bag;
     private JOptionPane jPopup;
     private JLabel lAgent;
     private JLabel lProtectiveGears;
@@ -37,7 +38,7 @@ public class BagMenu {
      * Létrehozza az ablakot és az előugró ablakokat, ha kell
      */
     public void init(){
-        JFrame bag = new JFrame("Bag");
+        bag = new JFrame("Bag");
         bag.setSize(new Dimension(400, 500));
         final JPanel jPanel = new JPanel(new BorderLayout());
         final JPanel grid = new JPanel(new GridLayout(0,1));
@@ -64,8 +65,11 @@ public class BagMenu {
         materials = new BagMenuData(new ArrayList<Item>(virologistBag.getMaterials()));
 
         pAgent.setLayout(new BorderLayout());
+        pAgent.setName("pAgent");
         pProtectiveGears.setLayout(new BorderLayout());
+        pProtectiveGears.setName("pProtectiveGears");
         pMaterials.setLayout(new BorderLayout());
+        pMaterials.setName("pMaterials");
 
         /**
          * a táblázatok beállítása
@@ -80,8 +84,12 @@ public class BagMenu {
         protectiveGearTable.setTableHeader(null);
         materialTable.setTableHeader(null);
         agentTable.setRowHeight(20);
+        agentTable.setName("agentTable");
         protectiveGearTable.setRowHeight(20);
+        protectiveGearTable.setName("protectiveGearTable");
         materialTable.setRowHeight(20);
+        materialTable.setName("materialTable");
+
         agentTable.getColumnModel().getColumn(0).setPreferredWidth(20);
         agentTable.getColumnModel().getColumn(1).setPreferredWidth(300);
         protectiveGearTable.getColumnModel().getColumn(0).setPreferredWidth(20);
@@ -214,5 +222,9 @@ public class BagMenu {
         jPanel.add(jEmptyTop, BorderLayout.PAGE_START);
 
         bag.setVisible(true);
+    }
+
+    public JFrame getFrame() {
+        return bag;
     }
 }

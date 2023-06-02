@@ -4,6 +4,7 @@ import View.TileView;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * A mező ősosztály, ami a tárolja, hogy melyik virológusok vannak rajta és hogy mennyi
@@ -192,5 +193,35 @@ public class Tile {
 				System.out.println("");
 			}
 		}
+	}
+
+	public int[] getTheCenter() {
+		int maxX = Integer.MIN_VALUE;
+		int minX = Integer.MAX_VALUE;
+		for (int x : pointsX){
+			if (x > maxX)
+				maxX = x;
+		}
+		for (int x : pointsX){
+			if (x < minX)
+				minX = x;
+		}
+
+		int maxY = Integer.MIN_VALUE;
+		int minY = Integer.MAX_VALUE;
+		for (int y : pointsY){
+			if (y > maxY)
+				maxY = y;
+		}
+		for (int y : pointsY){
+			if (y < minY)
+				minY = y;
+		}
+
+		int x = (minX + maxX) / 2;
+		int y = (minY + maxY) / 2;
+		int[] point = {x, y};
+
+		return point;
 	}
 }

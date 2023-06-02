@@ -137,4 +137,8 @@ public class GamePanel extends JPanel {
         }
         return minValue;
     }
+
+    public ArrayList<VirologistView> getVirologistViews() {
+        return virologistViews;
+    }
 }

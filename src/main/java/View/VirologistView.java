@@ -17,6 +17,7 @@ public class VirologistView extends Drawable{
         this.y = p.getY();
     }
     public void draw(Graphics g, Color color){
+        this.color = color;
         g.setColor(color);
         g.fillOval((int)this.x,(int)this.y,20,20);
     }
@@ -26,4 +27,8 @@ public class VirologistView extends Drawable{
         virologist.setView(this);
     }
     public Virologist getVirologist() { return virologist; }
+
+    public Color getColor() {
+        return color;
+    }
 }

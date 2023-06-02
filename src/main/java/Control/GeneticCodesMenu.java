@@ -8,6 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class GeneticCodesMenu {
+    private JFrame geneteicCodes;
     private JOptionPane jPopup;
     private JLabel lCodes;
     private JPanel pCodes;
@@ -26,7 +27,7 @@ public class GeneticCodesMenu {
      * Létrehozza az ablakot és az előugró ablakokat, ha kell
      */
     public void init(){
-        JFrame geneteicCodes = new JFrame("Genteic Codes");
+        geneteicCodes = new JFrame("Genteic Codes");
         geneteicCodes.setSize(new Dimension(300, 500));
         final JPanel jPanel = new JPanel(new BorderLayout());
         final JPanel jEmptyLeft = new JPanel();
@@ -40,10 +41,12 @@ public class GeneticCodesMenu {
          */
         geneticcodes = new GeneticCodeMenuData(new ArrayList<GeneticCode>(virologist.getGeneticCodes()));
         pCodes.setLayout(new BorderLayout());
+        pCodes.setName("pCodes");
         /**
          * a táblázat beállítása
          */
         geneticCodeTable = new JTable(geneticcodes);
+        geneticCodeTable.setName("geneticCodeTable");
         geneticCodeTable.setFillsViewportHeight(true);
         geneticCodeTable.setTableHeader(null);
         geneticCodeTable.setRowHeight(20);
@@ -78,5 +81,9 @@ public class GeneticCodesMenu {
         jPanel.add(jEmptyBottom, BorderLayout.PAGE_END);
 
         geneteicCodes.setVisible(true);
+    }
+
+    public JFrame getFrame() {
+        return geneteicCodes;
     }
 }
