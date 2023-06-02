@@ -25,12 +25,10 @@ class LoadTest {
             MainMenu mainMenu = new MainMenu(game);
             System.out.println("Created");
             while(!exit){
-
             }
             System.out.println("Closed");
         }
     }
-
     public void setUpTestEscape(StartThread startThread, int runTime) throws InterruptedException {
         Thread.sleep(runTime);
         startThread.setExit();

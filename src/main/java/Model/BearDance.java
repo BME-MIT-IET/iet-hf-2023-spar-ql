@@ -3,7 +3,7 @@ package Model;
 /**
  * Az ágens virológusra gyakorolt hatás idejét tárolja, valmaint kifejti a hatását a virológusra
  */
-public class BearDance extends Effects {
+public class BearDance extends Effects implements Steppable {
 
     private long effected;
 
@@ -21,6 +21,7 @@ public class BearDance extends Effects {
     @Override
     public void Step() {
         if(effected > 0) {
+            effected--;
             if(effected == 0){
                 virologist.removeEffect(this);
             }
