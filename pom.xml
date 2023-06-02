@@ -58,9 +58,6 @@
             <version>5.3.1</version>
             <scope>test</scope>
         </dependency>
-    </dependencies>
-
-    <dependencies>
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-swing-junit</artifactId>
