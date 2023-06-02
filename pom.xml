@@ -40,16 +40,6 @@
 
 <dependencies>
     <dependency>
-        <groupId>org.owasp</groupId>
-        <artifactId>dependency-check-maven</artifactId>
-        <version>8.2.1</version>
-    </dependency>
-    <dependency>
-        <groupId>com.code-intelligence</groupId>
-        <artifactId>jazzer-junit</artifactId>
-        <version>0.15.0</version>
-    </dependency>
-    <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>4.13.2</version>
@@ -89,6 +79,16 @@
         <artifactId>junit</artifactId>
         <version>4.13.2</version>
         <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.owasp</groupId>
+        <artifactId>dependency-check-maven</artifactId>
+        <version>8.2.1</version>
+    </dependency>
+    <dependency>
+        <groupId>com.code-intelligence</groupId>
+        <artifactId>jazzer-junit</artifactId>
+        <version>0.15.0</version>
     </dependency>
 </dependencies>
 </project>
