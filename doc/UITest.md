@@ -194,3 +194,11 @@ A teszt sikeresnek tekinthető ha a státusza: "Test terminated"
 
 Fontos, hogy ezt a tesztet utolsóként indítsa a tesztelő, mert maga a tesztelési folyamatból is kilép a System.exit(0), amivel a soron következő tesztek státusza "terminated" lesz.
 Ezért kapott egy Z kezdést az osztály neve.
+
+## Eredmények és tanulságok
+### Eck Richárd
+A házi feladat legnehezebb része és legidőigényesebb része számomra a megfelelő tesztelési környzetet kiválsztása volt.
+Több lehetséges megoldást is kipróbáltam mielőtt megtaláltam volna az AssertJ-t. Szóval a tanulgás számomra az ebből az, hogy
+nagyon fontos, hogy megtalálja az ember azt a tesztelési környezetet, amivel az igényei szerint tud tesztelni, de ez akár sokkal több időbe is telhet, mint az elején gondolta.
+A tesztelés maga egészen egyszerű volt miután pár példán begyakorlotam az AssertJ-t. A tesztek írása illetve futtatása közben több helyen is észleltem hibákat a kódban és ezeket javítottam is.
+Ezek a hibák főleg abból adódtak, hogy lokális változóként voltak tárolva a dolgok nem pedig globális változóként getter-rel és setter-rel.
