@@ -27,6 +27,7 @@ public class MainMenu {
 
     public MainMenu(Game game){
         this.game = game;
+
         init();
     }
 
